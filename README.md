@@ -70,26 +70,26 @@ Supports both:
 
 The application follows a **layered architecture**.
 
-
 User
-│
-▼
+ │
+ ▼
 TomatoApp (Facade)
-│
-├── Managers
-│ ├── RestaurantManager
-│ └── OrderManager
-│
-├── Factories
-│ ├── NowOrderFactory
-│ └── ScheduledOrderFactory
-│
-├── Strategies
-│ ├── UpiPaymentStrategy
-│ └── CreditCardPaymentStrategy
-│
-└── Services
-└── NotificationService
+ │
+ ├── Managers
+ │   ├── RestaurantManager
+ │   └── OrderManager
+ │
+ ├── Factories
+ │   ├── NowOrderFactory
+ │   └── ScheduledOrderFactory
+ │
+ ├── Strategies
+ │   ├── UpiPaymentStrategy
+ │   └── CreditCardPaymentStrategy
+ │
+ └── Services
+     └── NotificationService
+
 
 
 
@@ -106,35 +106,35 @@ TomatoApp (Facade)
 
 
 TOMATO/
-
+│
 ├── factories/
-│ ├── NowOrderFactory.h
-│ ├── OrderFactory.h
-│ └── ScheduledOrderFactory.h
+│   ├── NowOrderFactory.h
+│   ├── OrderFactory.h
+│   └── ScheduledOrderFactory.h
 │
 ├── managers/
-│ ├── OrderManager.h
-│ └── RestaurantManager.h
+│   ├── OrderManager.h
+│   └── RestaurantManager.h
 │
 ├── models/
-│ ├── Cart.h
-│ ├── DeliveryOrder.h
-│ ├── MenuItem.h
-│ ├── Order.h
-│ ├── PickupOrder.h
-│ ├── Restaurant.h
-│ └── User.h
+│   ├── Cart.h
+│   ├── DeliveryOrder.h
+│   ├── MenuItem.h
+│   ├── Order.h
+│   ├── PickupOrder.h
+│   ├── Restaurant.h
+│   └── User.h
 │
 ├── services/
-│ └── NotificationService.h
+│   └── NotificationService.h
 │
 ├── strategies/
-│ ├── CreditCardPaymentStrategy.h
-│ ├── PaymentStrategy.h
-│ └── UpiPaymentStrategy.h
+│   ├── CreditCardPaymentStrategy.h
+│   ├── PaymentStrategy.h
+│   └── UpiPaymentStrategy.h
 │
 └── utils/
-└── TimeUtils.h
+    └── TimeUtils.h
 
 
 ---
