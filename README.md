@@ -1,122 +1,30 @@
-# 🚀 TomatoApp – Food Delivery System (C++)
+# TomatoApp - Food Delivery System
 
-![Language](https://img.shields.io/badge/Language-C++-blue)
-![Architecture](https://img.shields.io/badge/Architecture-Design%20Patterns-green)
-![Platform](https://img.shields.io/badge/Platform-Console-lightgrey)
+A simple C++ console-based application simulating a food delivery platform similar to Zomato or Swiggy. This project demonstrates object-oriented design principles, including factories, managers, strategies, and the facade pattern.
 
----
+## Features
 
-## 📌 Overview
+- **User Management**: Create and manage user profiles with carts.
+- **Restaurant Search**: Search restaurants by location.
+- **Menu Management**: Add and view menu items for each restaurant.
+- **Cart Functionality**: Add items to cart, view cart contents, and calculate totals.
+- **Order Types**: Support for immediate ("now") and scheduled orders.
+- **Payment Strategies**: Multiple payment methods (UPI, Credit Card).
+- **Order Processing**: Process payments and send notifications.
+- **Delivery and Pickup**: Support for different order types (Delivery, Pickup).
 
-A **C++ console-based food delivery system** inspired by platforms like **Zomato** and **Swiggy**.
+## Project Structure
 
-This project demonstrates **clean architecture and object-oriented design principles** using multiple design patterns:
-
-- Factory Pattern
-- Strategy Pattern
-- Singleton Pattern
-- Facade Pattern
-
-The application simulates a **complete food ordering workflow** including restaurant discovery, cart management, payment processing, and order notification.
-
----
-
-# ✨ Features
-
-## 👤 User Management
-
-- Create and manage user profiles
-- Maintain individual carts for each user
-
-## 🍽 Restaurant Search
-
-- Search restaurants by location
-- Browse restaurant menus
-
-## 🛒 Cart System
-
-- Add menu items to cart
-- View cart contents
-- Calculate order totals
-
-## 📦 Order Types
-
-- Immediate Orders
-- Scheduled Orders
-
-## 💳 Payment Strategies
-
-Supports multiple payment methods:
-
-- UPI
-- Credit Card
-
-Implemented using the **Strategy Pattern**.
-
-## 🔔 Notification System
-
-Users receive notifications after successful order placement.
-
-## 🚚 Delivery Options
-
-Supports both:
-
-- Delivery Orders
-- Pickup Orders
-
----
-
-# 🏗 System Architecture
-
-The application follows a **layered architecture**.
-
-User
- │
- ▼
-TomatoApp (Facade)
- │
- ├── Managers
- │   ├── RestaurantManager
- │   └── OrderManager
- │
- ├── Factories
- │   ├── NowOrderFactory
- │   └── ScheduledOrderFactory
- │
- ├── Strategies
- │   ├── UpiPaymentStrategy
- │   └── CreditCardPaymentStrategy
- │
- └── Services
-     └── NotificationService
-
-
-
-
-### Benefits
-
-- Separation of concerns  
-- Modular design  
-- Easy extensibility  
-- Maintainable architecture  
-
----
-
-# 📂 Project Structure
-
-
+```
 TOMATO/
-│
-├── factories/
+├── factories/          # Factory classes for creating orders
 │   ├── NowOrderFactory.h
 │   ├── OrderFactory.h
 │   └── ScheduledOrderFactory.h
-│
-├── managers/
+├── managers/           # Singleton managers for orders and restaurants
 │   ├── OrderManager.h
-│   └── RestaurantManager.h
-│
-├── models/
+│   └── RestuarantManager.h
+├── models/             # Data models
 │   ├── Cart.h
 │   ├── DeliveryOrder.h
 │   ├── MenuItem.h
@@ -124,108 +32,95 @@ TOMATO/
 │   ├── PickupOrder.h
 │   ├── Restaurant.h
 │   └── User.h
-│
-├── services/
+├── services/           # Notification service
 │   └── NotificationService.h
-│
-├── strategies/
-│   ├── CreditCardPaymentStrategy.h
+├── strategies/         # Payment strategy pattern
+│   ├── CreditCartPaymentStrategy.h
 │   ├── PaymentStrategy.h
 │   └── UpiPaymentStrategy.h
-│
-└── utils/
+└── utils/              # Utility classes
     └── TimeUtils.h
+```
 
+## Installation and Setup
 
----
+### Prerequisites
+- C++ compiler (e.g., g++ on Linux/Mac, Visual Studio on Windows)
+- Standard C++ libraries (included with compiler)
 
-# ⚙️ Installation
+### Compilation
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/yourusername/tomatoapp.git
+   cd tomatoapp
+   ```
 
-## Prerequisites
+2. Compile the project:
+   ```bash
+   g++ main.cpp -I. -ITOMATO -o tomatoapp
+   ```
+   *Note: This assumes all header files are in the same directory or properly included. You may need to adjust include paths or use a build system like CMake for larger projects.*
 
-- C++ Compiler (**g++ / Visual Studio**)
-- Standard C++ libraries
-
----
-
-# 🛠 Build Instructions
-
-Clone the repository:
-git clone https://github.comyogeshhchavan/Food-tomatoApp.git
-
-cd TomatoApp
-
-
-Compile the project:
-
-
-g++ main.cpp -o tomatoapp
-
----
-
-# ▶ Running the Application
+### Running the Application
+```bash
 ./tomatoapp
+```
 
+The application will simulate a user ordering food from a restaurant in Delhi.
 
-The application simulates a **complete food ordering flow**.
+## Usage
 
----
+The application demonstrates a complete flow:
+1. Initialize sample restaurants
+2. Create a user
+3. Search for restaurants by location
+4. Select a restaurant
+5. Add items to cart
+6. Checkout and process payment
+7. Send notification
 
-# 🧪 Example Output
-ser: Adityais active. 
-Found Restaurant : 
+Example output:
+```
+User: Aditya is active.
+Found Restaurant :
  - Binker
 Selected Restauarant : Binker
-Item in cart : 
+Item in cart :
 ---------------------------------------------
 P1 : Chole Bhature : $120
 P2 : Samosa : $15
 ---------------------------------------------
 Grand total : $135
-Paid $135 using UPI: (1234567890)
+```
 
-Notification : New Deliveryorder places!
-________________________________________________________
-Order ID: 1
-Customer: Aditya
-Restaurant: Binker
-Items Ordered:
- - Chole Bhature ($120)
- - Samosa ($15)
-Total : $135
-Scheduled For: Sat Mar 14 00:03:11 2026
-Payment Done...!
-________________________________________________________
+## Design Patterns Used
 
+- **Facade Pattern**: `TomatoApp` class provides a simplified interface
+- **Factory Pattern**: Order creation factories
+- **Strategy Pattern**: Payment strategies
+- **Singleton Pattern**: Managers for orders and restaurants
 
----
+## Contributing
 
-# 🧠 Design Patterns Used
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-| Pattern | Purpose |
-|-------|--------|
-| Facade Pattern | Simplifies system interaction |
-| Factory Pattern | Handles order creation |
-| Strategy Pattern | Payment method selection |
-| Singleton Pattern | Ensures single manager instance |
+## License
 
-These patterns improve:
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-- Scalability  
-- Maintainability  
-- Extensibility  
+## Future Enhancements
+
+- Add more payment methods
+- Implement user authentication
+- Add database persistence
+- Create a GUI interface
+- Add real-time order tracking
+- Implement rating and review system
 
 ---
 
-# 🚀 Future Enhancements
-
-Possible improvements:
-
-- User authentication system
-- Database integration
-- GUI-based interface
-- Real-time order tracking
-- Restaurant rating and review system
-
----
-
+*This is a demonstration project for learning C++ and design patterns. Not intended for production use.*
